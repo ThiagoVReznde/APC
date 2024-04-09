@@ -5,9 +5,9 @@ int n, F;
 int main(){
     for(n=0; n<3; ++n) {
 
-        printf("\nSalario %d: ", n);
+        printf("\nSalario %d: ", (n+1));
         scanf("%f", &S);
-        printf("\nFilhos %d: ", n);
+        printf("Filhos %d: ", (n+1));
         scanf("%d", &F);
     
         if(S<=150)
