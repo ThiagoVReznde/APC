@@ -3,7 +3,7 @@ float S, Sx, SM, P, Fx;
 int n, F;
 
 int main(){
-    for(n=0; n<3; ++n) {
+    for(n=0; n<200; ++n) {
 
         printf("\nSalario %d: ", (n+1));
         scanf("%f", &S);
