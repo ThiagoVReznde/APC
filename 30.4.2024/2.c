@@ -11,7 +11,7 @@ int main(){
     scanf("%s", nome1);
     scanf("%s", nome2);
 
-    if (nome1[0] <= nome2[0])
+    if (strcmp(nome1, nome2) < 1)
         printf("Nomes em ordem:\n%s\n%s\n", nome1, nome2);
     else 
         printf("Nomes em ordem:\n%s\n%s\n", nome2, nome1);
