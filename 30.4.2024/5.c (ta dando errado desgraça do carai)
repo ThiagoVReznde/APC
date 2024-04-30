@@ -1,0 +1,39 @@
+//Construa um programa em C que cadastra 5 produtos (nome e preço) e informa:
+//a média de preços
+//quais produtos estão abaixo dessa média
+//imprime os produtos em ordem crescente de preço
+
+#include <stdio.h>
+#include <string.h>
+
+char nome[5], abaixomedia[5], preco[5], media[1];
+int i, qnt;
+float total;
+
+int main(){
+    //anota valores
+    for (i = 0; i < 5; i++)
+    {
+        printf("\nNome Produto\n");
+        scanf("%s", nome[i]);
+        printf("\nPreco Produto\n");
+        scanf("%s", preco[i]);
+        
+        total = (total+preco[i]);
+    }
+
+    media[1][5] = (total/5);
+
+    // comprara com a media
+    for (i = 0; i < 5; i++)
+    {
+        if (strcmp(preco[i], media[1]))
+        {
+            abaixomedia[i] = nome[i];
+        }
+    }
+    
+    puts(abaixomedia);
+    
+return(0);
+}
