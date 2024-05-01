@@ -6,37 +6,60 @@
 #include <stdio.h>
 #include <string.h>
 
-char nome[5], abaixomedia[5], preco[5];
-int i;
-float total = 0, media;
+char nome[5][10], aux[10];
+int i, r;
+float total = 0, media, preco[5];
 
 int main(){
     //anota valores
     for (i = 0; i < 5; i++)
     {
-        printf("Nome\n");
-        scanf("%s", nome[i]);
-
-        printf("Custo\n");
-        scanf("%s", preco[i]);
+        printf("\nNome: ");
+        scanf("%s", &nome[i]);
+        printf("\nPreco: R$");
+        scanf("%f", &preco[i]);
         
-        total = (total+preco[i]);
-        printf("%d", i);
+        total=(total+preco[i]);
+
     }
 
-    media = (total/5);
-    printf("%.2f eh a media", media);
-
-    // comprara com a media
+    //ordena os nomes
     for (i = 0; i < 5; i++)
     {
-        if (preco[i] < media)
+        for (r = i+1; r < 5; r++)
         {
-            abaixomedia[i] = nome[i];
+            if (strcmp(nome[i], nome[r])>0)
+            {
+                strcpy(aux,nome[i]);
+                strcpy(nome[i],nome[r]);
+                strcpy(nome[r],aux);
+            }
         }
     }
     
-    puts(abaixomedia);
+    //calcula a media
+    media=(total/i);
+    printf("\nA media eh: R$%.2f;\n", media);
+
+    //compara com a media
+    for (i = 0; i < 5; i++)
+    {
+        if (media>preco[i])
+        {
+            puts(nome[i]);
+        }
+    }
+    printf("estao abaixo da media\n");
     
+    printf("\nOs nomes ordenados ficam:\n");
+
+    //fala os nomes ordenados
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d- ", (i+1));
+        puts(nome[i]);
+    }
+    
+
 return(0);
 }
