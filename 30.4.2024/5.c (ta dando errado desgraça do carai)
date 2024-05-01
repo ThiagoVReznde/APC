@@ -6,28 +6,31 @@
 #include <stdio.h>
 #include <string.h>
 
-char nome[5], abaixomedia[5], preco[5], media[1];
-int i, qnt;
-float total;
+char nome[5], abaixomedia[5], preco[5];
+int i;
+float total = 0, media;
 
 int main(){
     //anota valores
     for (i = 0; i < 5; i++)
     {
-        printf("\nNome Produto\n");
+        printf("Nome\n");
         scanf("%s", nome[i]);
-        printf("\nPreco Produto\n");
+
+        printf("Custo\n");
         scanf("%s", preco[i]);
         
         total = (total+preco[i]);
+        printf("%d", i);
     }
 
-    media[1][5] = (total/5);
+    media = (total/5);
+    printf("%.2f eh a media", media);
 
     // comprara com a media
     for (i = 0; i < 5; i++)
     {
-        if (strcmp(preco[i], media[1]))
+        if (preco[i] < media)
         {
             abaixomedia[i] = nome[i];
         }
