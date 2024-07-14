@@ -40,7 +40,7 @@ int main()
     {
         for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
         {
-            printf("[%.5f]", Matriz[LinhaFixa][Coluna]);
+            printf("[%.3f]", Matriz[LinhaFixa][Coluna]);
         }  
         printf("\n");
     }
