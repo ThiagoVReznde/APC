@@ -40,15 +40,8 @@ int main()
     {
         for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
         {
-        if (Matriz[LinhaFixa][Coluna] < 0)
-        {
-            Matriz[LinhaFixa][Coluna] = Matriz[LinhaFixa][Coluna]*(-1);
-            Matriz[LinhaFixa][TamanhoColuna-1] = Matriz[LinhaFixa][TamanhoColuna-1]*(-1);
-        }
             printf("[%.5f]", Matriz[LinhaFixa][Coluna]);
         }  
-        
-        
         printf("\n");
     }
     
