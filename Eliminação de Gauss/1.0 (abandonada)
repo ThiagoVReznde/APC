@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+float ResultadoDivisao; 
+float ResultadoProvisorio;
+float Matriz[3][4] = { {2,2,2, 1}, {4, 0, 4, 1}, {0, 3, 3, 1}};
+int Linha, Coluna, LinhaOP, ColunaOP;
+int const LinhaT = 3, ColunaT = 4;
+
+
+// refazer dps
+
+int main(){
+    Linha = 0;
+    Coluna = 0;
+    ColunaOP=0;
+    LinhaOP = 0;
+
+    while (Coluna < ColunaT)
+    {
+            while (Linha < LinhaT)
+            {
+                if (LinhaOP != Linha)
+                {
+                    if (Matriz[Linha][Coluna] != 0 || Matriz[LinhaOP][Coluna] != 0)
+                    {
+                        ResultadoDivisao = (Matriz[LinhaOP][Coluna] / Matriz[Linha][Coluna]);
+
+                        while (LinhaOP < LinhaOP+1)
+                        {
+                            ResultadoProvisorio = ((Matriz[Linha][ColunaOP]*ResultadoDivisao));
+                            Matriz[LinhaOP][ColunaOP] = Matriz[LinhaOP][ColunaOP] - ResultadoProvisorio;
+                            ColunaOP++;
+                            if (ColunaOP == ColunaT)
+                            {
+                                LinhaOP++;
+                                ColunaOP=0;
+                            }
+                        }
+                    }
+                }
+            Linha++;
+            }
+        Coluna++;      
+        }
+        
+    for (Coluna = 0; Coluna < ColunaT; Coluna++)
+    {
+        for (Linha = 0; Linha < LinhaT; Linha++)
+        {
+            printf("[%.1f]", Matriz[Linha][Coluna]);
+        }  
+        printf("\n");
+    }
+    
+    
+
+    return(1);
+}
