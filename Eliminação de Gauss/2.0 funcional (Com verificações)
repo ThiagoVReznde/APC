@@ -7,6 +7,8 @@ int LinhaFixa, Coluna;
 int LinhaProx, LinhaProv;
 const TamanhoLinha = 3, TamanhoColuna = 4;
 
+// eh necessario manualmente tirar o 0 das posicoes Ann, pois ele nao faz essa verificacao
+
 int main()
 {   
     for (LinhaFixa = 0; LinhaFixa < TamanhoLinha; LinhaFixa++)
