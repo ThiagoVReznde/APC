@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+float ResultadoDivisao; 
+float ResultadoProvisorio;
+float Matriz[3][4] = {{2,2,2, 1}, {4, 1, 4, 1}, {1, 3, 3, 1}};
+int LinhaFixa, Coluna, LinhaProx;
+int const TamanhoLinha = 3, TamanhoColuna = 4;
+
+int main()
+{   
+    for (LinhaFixa = 0; LinhaFixa < TamanhoLinha; LinhaFixa++)
+    {
+        
+        for(LinhaProx = 0; LinhaProx < TamanhoLinha; LinhaProx++)
+        {
+
+            if (LinhaFixa != LinhaProx)
+            {
+                if (Matriz[LinhaFixa][LinhaFixa]!=0)
+                {
+                    ResultadoDivisao = Matriz[LinhaProx][LinhaFixa]/Matriz[LinhaFixa][LinhaFixa];
+                }
+
+                for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+                {
+                    ResultadoProvisorio = (ResultadoDivisao*Matriz[LinhaFixa][Coluna]);
+                    Matriz[LinhaProx][Coluna] = (Matriz[LinhaProx][Coluna]-ResultadoProvisorio);
+                }
+                    
+                    
+            }
+        }     
+        
+    }
+    
+
+    printf("\n");
+
+    for (LinhaFixa = 0; LinhaFixa < TamanhoLinha; LinhaFixa++)
+    {
+        for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+        {
+        if (Matriz[LinhaFixa][Coluna] < 0)
+        {
+            Matriz[LinhaFixa][Coluna] = Matriz[LinhaFixa][Coluna]*(-1);
+            Matriz[LinhaFixa][TamanhoColuna-1] = Matriz[LinhaFixa][TamanhoColuna-1]*(-1);
+        }
+            printf("[%.5f]", Matriz[LinhaFixa][Coluna]);
+        }  
+        
+        
+        printf("\n");
+    }
+    
+    return 0;
+}
+
+
