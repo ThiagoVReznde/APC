@@ -1,0 +1,48 @@
+//Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer
+//uma busca desse valor na matriz e, ao final escrever a localização (linha e
+//coluna) ou uma mensagem de “não encontrado”.
+
+#include <stdio.h>
+
+int Matriz[20][20];
+int X, correspodencias=0;
+int Linha, Coluna;
+int const TamanhoLinha = 20, TamanhoColuna = 20;
+
+int main()
+{
+    for (Linha = 0; Linha < TamanhoLinha; Linha++)
+    {
+        for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+        {
+            Matriz[Linha][Coluna]=Linha+Coluna+2;
+            if (Matriz[Linha][Coluna]<10)
+            {
+                printf("[0%d]", Matriz[Linha][Coluna]);
+            }
+            else printf("[%d]", Matriz[Linha][Coluna]);
+        }
+        printf("\n");
+    }
+
+    printf("De o valor de X a ser buscado:\n");
+    scanf("%d", &X);
+
+    for (Linha = 0; Linha < TamanhoLinha; Linha++)
+    {
+        for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+        {
+            if (Matriz[Linha][Coluna]==X)
+            {
+                correspodencias++;
+                printf("X se encontra na Linha [%d] Coluna [%d]\n", Linha+1, Coluna+1);
+            }
+        }
+    }
+    if (correspodencias==0)
+    {
+        printf("nao ha correspodencias.\n");
+    }
+    
+    return(1);
+}
