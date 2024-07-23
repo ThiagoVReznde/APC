@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+char palavra[100], letra;
+char BancoVogais[]={'a','e','i','o','u', 
+'A', 'B', 'C', 'D', 'E'};
+int i, k, cont = 0;
+
+int main()
+{
+    printf("Palabra\n");
+    gets(palavra);
+
+    printf("Caracter\n");
+    scanf("%c", &letra);
+    
+    for (i = 0; i < strlen(palavra); i++)
+    {
+        for (k = 0; k < strlen(BancoVogais); k++)
+        {
+            if (palavra[i] == BancoVogais[k])
+            {
+                palavra[i]=letra;
+                cont++;
+            }
+        }
+    }
+    
+    printf("Sao %d vogais;\n", cont);
+    puts(palavra);
+    printf("\n");
+    return(1);
+}
