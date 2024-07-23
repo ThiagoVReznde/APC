@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int Matriz[8][8];
+int Maior, Soma = 0;
+int Linha, Coluna;
+int const TamanhoLinha = 8, TamanhoColuna = 8;
+
+int main()
+{
+    srand(time(NULL));
+    for (Linha = 0; Linha < TamanhoLinha; Linha++)
+    {
+        for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+        {
+            Matriz[Linha][Coluna] = rand()%100;
+        }
+    }
+
+    Maior=Matriz[0][0];
+    for (Linha = 0; Linha < TamanhoLinha; Linha++)
+    {
+        if (Maior < Matriz[Linha][Linha])
+        {
+            Maior = Matriz[Linha][Linha];
+        }
+        
+    }
+    
+    Linha=0;
+    for (Coluna = TamanhoColuna-1; Coluna >= 0; Coluna--)
+    {
+        Soma=Matriz[Linha][Coluna]+Soma;
+        Linha++;
+    }
+    
+    for (Linha = 0; Linha < TamanhoLinha; Linha++)
+    {
+        for (Coluna = 0; Coluna < TamanhoColuna; Coluna++)
+        {
+            printf("[%d]", Matriz[Linha][Coluna]);
+        }
+        printf("\n");
+    }
+    printf("---------------------\n");
+    printf("Maior valor da Diagonal Principal: %d\n", Maior);
+    printf("Soma da diagonal secundaria: %d\n", Soma);
+    return(1);
+}
